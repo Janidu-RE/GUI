@@ -1,0 +1,7 @@
+.Hero{
+    width: 100%;
+    min-height: 100vh;
+    background: url('../../assets/Background.webp');
+    object-fit: cover;
+    background-size: cover;
+}
