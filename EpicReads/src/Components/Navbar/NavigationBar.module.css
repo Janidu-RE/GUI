@@ -1,0 +1,114 @@
+.navigationBar {
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.navigationWrapper {
+  background-color: #00000070;
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 7px 61px;
+  
+}
+
+.navigationLinks {
+  display: flex;
+  align-items: center;
+  gap: 39px;
+  color: #fff;
+  font: 400 16px Microsoft Sans Serif;
+}
+
+.brandContainer {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: -15px;
+  white-space: nowrap;
+  justify-content: start;
+  font: 800 20px Inter, sans-serif;
+}
+
+.brandLogo {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 66px;
+  align-self: stretch;
+  margin-left: 20%;
+  
+}
+
+.brandName {
+  align-self: stretch;
+  width: 154px;
+  margin: auto 0;
+}
+
+.navLink {
+  align-self: stretch;
+  margin: auto 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+.authContainer {
+  display: flex;
+  gap: 40px;
+  margin: auto 0;
+}
+
+.loginLink {
+  color: #fff;
+  margin: auto 0;
+  font: 400 16px Microsoft Sans Serif;
+  text-decoration: none;
+}
+
+.signUpButton {
+  justify-content: center;
+  border-radius: 100px;
+  background: var(--M3-white, #fff);
+  display: flex;
+  min-height: 40px;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--Grays-Black, #000);
+  letter-spacing: var(--Label-Large-Tracking, 0.1px);
+  font: 500 var(--Label-Large-Size, 14px) / var(--Label-Large-Line-Height, 20px) var(--Label-Large-Font, Roboto);
+  border: none;
+  cursor: pointer;
+}
+
+.buttonContent {
+  align-self: stretch;
+  width: 100%;
+  gap: 8px;
+  flex: 1;
+  height: 100%;
+  padding: 10px 24px;
+}
+
+@media (max-width: 991px) {
+  .navigationWrapper {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  
+  .navigationLinks {
+    max-width: 100%;
+  }
+  
+  .brandContainer {
+    white-space: initial;
+  }
+  
+  .buttonContent {
+    padding: 0 20px;
+  }
+}

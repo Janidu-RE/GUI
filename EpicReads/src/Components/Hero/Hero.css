@@ -1,7 +1,36 @@
-.Hero{
+.Hero {
     width: 100%;
     min-height: 100vh;
-    background: url('../../assets/Background.webp');
     object-fit: cover;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.title {
+    color: aliceblue;
+    font-size: 80px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.paragraph {
+    color: aliceblue;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.SearchBar {
+    width: 50%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
