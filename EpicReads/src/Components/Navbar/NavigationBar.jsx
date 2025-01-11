@@ -1,7 +1,7 @@
 import * as React from "react";
 import styles from './NavigationBar.module.css';
 import logo from '../../assets/logo.png'
-
+import logo_1 from '../../assets/logo_1.png'
 const navLinks = [
   { text: 'Home', href: '/' },
   { text: 'Book Categories', href: '/categories' },
@@ -13,14 +13,13 @@ export default function NavigationBar() {
     <nav className={styles.navigationBar}>
       <div className={styles.navigationWrapper}>
         <div className={styles.navigationLinks}>
-          <div className={styles.brandContainer}>
+          <div >
             <img
               loading="lazy"
-              src={logo}
+              src={logo_1}
               className={styles.brandLogo}
               alt="EpicReads Logo"
             />
-            <div className={styles.brandName}>EpicReads</div>
           </div>
           {navLinks.map((link) => (
             <a 

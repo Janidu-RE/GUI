@@ -2,20 +2,19 @@ import React from "react";
 import "./Footer.css"; 
 import logo from '../../assets/logo.png'
 import styles from '../Navbar/NavigationBar.module.css';
+import logo_1 from '../../assets/logo_1.png'
 
 const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer-container">
                 <div className="footer-logo">
-                    <div className={styles.brandContainer}>
+                    <div>
                                 <img
                                   loading="lazy"
-                                  src={logo}
-                                  className={styles.brandLogo}
+                                  src={logo_1}
                                   alt="EpicReads Logo"
                                 />
-                                <div className={styles.brandName}>EpicReads</div>
                               </div>
                     <p className="footer-description">
                         Your one-stop destination to discover, track, and plan your reading journey.
@@ -37,7 +36,7 @@ const Footer = () => {
                     <a href="#" className="social-icon"><i className="fab fa-facebook "></i></a>
                     <a href="#" className="social-icon"><i className="fab fa-twitter "></i></a>
                     <a href="#" className="social-icon"><i className="fab fa-instagram "></i></a>
-                    <a href="#" className="social-icon"><i className="fab fa-linkedin "></i></a>
+                    <a href="#" className="social-icon"><i className="fab fa-youtube "></i></a>
                 </div>
             </div>
 

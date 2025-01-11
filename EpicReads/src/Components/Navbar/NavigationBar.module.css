@@ -26,31 +26,21 @@
   font: 400 16px Microsoft Sans Serif;
 }
 
-.brandContainer {
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  gap: -15px;
-  white-space: nowrap;
-  justify-content: start;
-  font: 800 20px Inter, sans-serif;
-  transition: transform 0.8s ease;
-}
 
 .brandLogo {
-  aspect-ratio: 1;
   object-fit: contain;
   object-position: center;
-  width: 66px;
+  width: 220px;
   align-self: stretch;
   margin-left: 20%;
+  padding-right: 30%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  transition: transform 1s ease;
   
 }
-
-.brandName {
-  align-self: stretch;
-  width: 154px;
-  margin: auto 0;
+.brandLogo:hover {
+  transform: scale(1.5);
 }
 
 .navLink {
@@ -58,6 +48,11 @@
   margin: auto 0;
   color: #fff;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+    color: #ff9800;
 }
 
 .authContainer {
@@ -71,6 +66,10 @@
   margin: auto 0;
   font: 400 16px Microsoft Sans Serif;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+.loginLink:hover {
+  color: #ff9800;
 }
 
 .signUpButton {
@@ -86,6 +85,11 @@
   font: 500 var(--Label-Large-Size, 14px) / var(--Label-Large-Line-Height, 20px) var(--Label-Large-Font, Roboto);
   border: none;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+.signUpButton:hover {
+  transform: scale(1.2);
+  background-color: #ff9800;
 }
 
 .buttonContent {
