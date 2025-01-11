@@ -1,11 +1,12 @@
 import * as React from "react";
 import styles from './NavigationBar.module.css';
-import logo from '../../assets/logo.png'
 import logo_1 from '../../assets/logo_1.png'
+import { Link } from 'react-router-dom';
+
 const navLinks = [
-  { text: 'Home', href: '/' },
-  { text: 'Book Categories', href: '/categories' },
-  { text: 'Book Shelf', href: '/shelf' }
+  { text: 'Home', to: '/Home' },
+  { text: 'Book Categories', to: '/categories' },
+  { text: 'Book Shelf', to: '/shelf' }
 ];
 
 export default function NavigationBar() {
@@ -14,21 +15,23 @@ export default function NavigationBar() {
       <div className={styles.navigationWrapper}>
         <div className={styles.navigationLinks}>
           <div >
-            <img
-              loading="lazy"
-              src={logo_1}
-              className={styles.brandLogo}
-              alt="EpicReads Logo"
+            <Link to='/'>
+              <img
+                loading="lazy"
+                src={logo_1}
+                className={styles.brandLogo}
+                alt="EpicReads Logo"
             />
+            </Link>
           </div>
           {navLinks.map((link) => (
-            <a 
+            <Link 
               key={link.text}
-              href={link.href}
+              to={link.to}
               className={styles.navLink}
             >
               {link.text}
-            </a>
+            </Link>
           ))}
         </div>
         <div className={styles.authContainer}>
