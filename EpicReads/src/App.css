@@ -1,6 +1,12 @@
 .back {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.6)), url('./assets/Background.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.6)),
+    url("./assets/Background.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.content {
+  padding-top: 87px;
+  min-height: calc(100vh - 60px);
 }

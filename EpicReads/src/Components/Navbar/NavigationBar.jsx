@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 const navLinks = [
   { text: 'Home', to: '/Home' },
-  { text: 'Book Categories', to: '/categories' },
-  { text: 'Book Shelf', to: '/shelf' }
+  { text: 'Book Categories', to: '/Categories' },
+  { text: 'Book Shelf', to: '/Shelf' }
 ];
 
 export default function NavigationBar() {
@@ -35,9 +35,9 @@ export default function NavigationBar() {
           ))}
         </div>
         <div className={styles.authContainer}>
-          <a href="/login" className={styles.loginLink}>Login</a>
+          <Link to="/Login" className={styles.loginLink}>Login</Link>
           <button className={styles.signUpButton}>
-            <span className={styles.buttonContent}>Sign Up</span>
+            <Link to="/Signup" className={styles.buttonContent}>Sign Up</Link>
           </button>
         </div>
       </div>
