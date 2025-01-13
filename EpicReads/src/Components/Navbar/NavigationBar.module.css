@@ -86,7 +86,7 @@
   font: 500 var(--Label-Large-Size, 14px) / var(--Label-Large-Line-Height, 20px) var(--Label-Large-Font, Roboto);
   border: none;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: transform 1s ease;
 }
 .signUpButton:hover {
   transform: scale(1.2);

@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import Landing from "./Pages/Landing.jsx";
 import Book_shelf from "./Pages/Book_shelf.jsx";
-import Login from "./Pages/Login.jsx";
+import Login from "./Pages/Login/Login.jsx";
 import Signup from "./Pages/Signup.jsx";
 import Categories from "./Pages/Book_categories.jsx";
 
