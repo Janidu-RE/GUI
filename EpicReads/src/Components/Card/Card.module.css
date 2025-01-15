@@ -53,34 +53,9 @@
     color: #000;
     font-weight: 600;
     text-align: center;
-  }
   
-  .timeContainer {
-    align-self: center;
-    display: flex;
-    margin-top: 24px;
-    align-items: center;
-    gap: 10px;
-    font-size: 16px;
-    color: rgba(4, 110, 27, 1);
-    font-weight: 500;
-    justify-content: start;
   }
-  
-  .timeIcon {
-    aspect-ratio: 1;
-    object-fit: contain;
-    object-position: center;
-    width: 15px;
-    align-self: stretch;
-    margin: auto 0;
-  }
-  
-  .timeText {
-    align-self: stretch;
-    margin: auto 0;
-  }
-  
+
   .visually-hidden {
     position: absolute;
     width: 1px;
@@ -92,3 +67,28 @@
     white-space: nowrap;
     border: 0;
   }
+
+  .more_details {
+    display: flex;
+    background-color: #ff9800;
+    color: black;
+    justify-content: center; 
+    align-items: center;    
+    border: none;
+    max-width: 100px;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;     
+    padding: 10px;          
+    border-radius: 5px;     
+    cursor: pointer;
+    transition: color 0.3s ease; 
+  }
+  .more_details:hover {
+    background-color: #e68900;      
+  }
+.button_Container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}

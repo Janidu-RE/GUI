@@ -14,14 +14,8 @@ function Card(){
           <div className={styles.contentWrapper}>
             <div className={styles.contentContainer}>
               <h4 className={styles.title}>Harry Potter and the half blood prince</h4>
-              <div className={styles.timeContainer}>
-                <img
-                  loading="lazy"
-                  src="clock.svg"
-                  className={styles.timeIcon}
-                  alt=""
-                />
-                <span className={styles.timeText}>10 Mins</span>
+              <div className={styles.button_Container}>
+                <button className={styles.more_details}>More Details</button>
               </div>
             </div>
           </div>

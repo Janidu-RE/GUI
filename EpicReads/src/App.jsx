@@ -9,7 +9,7 @@ import Landing from "./Pages/Landing.jsx";
 import Book_shelf from "./Pages/Book_shelf.jsx";
 import Login from "./Pages/Login/Login.jsx";
 import Signup from "./Pages/Signup.jsx";
-import Categories from "./Pages/Book_categories.jsx";
+import Categories from "./Pages/Categories/Book_categories.jsx";
 
 const App = () => {
   return (
