@@ -1,8 +1,8 @@
 import React from "react";
 import Grid from "../../Components/Grid/Grid";
-import "./Book_categories.css";
+import "./Home.css";
 
-const BooksByGenre = () => {
+const Home = () => {
     const genres = [
         "Fiction",
         "Science",
@@ -29,4 +29,4 @@ const BooksByGenre = () => {
     );
 };
 
-export default BooksByGenre;
+export default Home;
