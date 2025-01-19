@@ -16,7 +16,7 @@ const Hero = () => {
     const fetchBooks = async () => {
       try {
         const response = await axios.get(
-          `https://www.googleapis.com/books/v1/volumes?q=${search}&key=AIzaSyAzXezPkeYGmLSZmdmivT3eeUM-oD31Rac`
+          `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=40&key=AIzaSyAzXezPkeYGmLSZmdmivT3eeUM-oD31Rac`
         );
         setBookData(response.data.items || []); // Safely handle cases with no items
       } catch (error) {
