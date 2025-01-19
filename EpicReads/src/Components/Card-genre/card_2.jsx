@@ -1,14 +1,14 @@
 import React from "react";
-import "./Card.css";
+import "./Card_2.css";
 
-const Card_2 = ({ books }) => {
+const Card = ({ books }) => {
   // If no books are provided or books array is empty
   if (!books || books.length === 0) {
     return <div>No books found. Try searching for something else!</div>;
   }
 
   return (
-    <div className="product-container">
+    <div className="card-product-container">
       {books.map((item, index) => {
         // Destructure volumeInfo from each item
         const volumeInfo = item.volumeInfo || {};
@@ -18,21 +18,21 @@ const Card_2 = ({ books }) => {
         const imageUrl = imageLinks ? imageLinks.thumbnail : "https://via.placeholder.com/250x350";
 
         return (
-          <div className="product-card" key={index}>
-            <div className="card-image">
+          <div className="card-product-card" key={index}>
+            <div className="card-card-image">
               <img
                 src={imageUrl}
                 alt={title || "Book Cover"}
-                className="product-thumb"
+                className="card-product-thumb"
               />
-              <div className="btn-container">
+              <div className="card-btn-container">
                 <button className="btn">Already Read</button>
                 <button className="btn">Willing to Read</button>
               </div>
             </div>
-            <div className="product-info">
-              <h3 className="card-title">{title || "No Title Available"}</h3>
-              <p className="card-author">{authors ? authors.join(", ") : "Unknown Author"}</p>
+            <div className="card-product-info">
+              <h3 className="card-card-title">{title || "No Title Available"}</h3>
+              <p className="card-card-author">{authors ? authors.join(", ") : "Unknown Author"}</p>
             </div>
           </div>
         );
@@ -41,4 +41,4 @@ const Card_2 = ({ books }) => {
   );
 };
 
-export default Card_2;
+export default Card;
