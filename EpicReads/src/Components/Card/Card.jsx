@@ -1,61 +1,39 @@
-import { useState } from 'react';
-import styles from './Card.module.css';
+import React from "react";
+import "./Card.css";
 
-function Card() {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleFlip = () => {
-    setIsFlipped(!isFlipped);
-  };
+const Card = ({ books }) => {
+  if (!books || books.length === 0) {
+    return <div>No books found. Try searching for something else!</div>;
+  }
 
   return (
-    <div className={styles.cardContainer}>
-      <div className={`${styles.card} ${isFlipped ? styles.flipped : ''}`}>
-        {/* Front of the card */}
-        <div className={styles.cardFront}>
-          <div className={styles.imageContainer}>
-            <img
-              loading="lazy"
-              src="/assets/book.jpg"
-              className={styles.foodImage}
-              alt="book cover"
-            />
-          </div>
-          <div className={styles.contentWrapper}>
-            <div className={styles.contentContainer}>
-              <h4 className={styles.title}>Harry Potter and the Half-Blood Prince</h4>
-              <div className={styles.button_Container}>
-                <button
-                  className={styles.more_details}
-                  onClick={handleFlip}
-                >
-                  More Details
-                </button>
+    <div className="product-container">
+      {books.map((item, index) => {
+        const volumeInfo = item.volumeInfo || {};
+        const { title, authors, imageLinks } = volumeInfo;
+
+        return (
+          <div className="product-card" key={index}>
+            <div className="card-image">
+              <img
+                src={imageLinks?.thumbnail || "https://via.placeholder.com/250x350"}
+                alt={title || "Book Cover"}
+                className="product-thumb"
+              />
+              <div className="btn-container">
+                <button className="btn">Already Read</button>
+                <button className="btn">Willing to Read</button>
               </div>
             </div>
+            <div className="product-info">
+              <h3 className="card-title">{title || "No Title Available"}</h3>
+              <p className="card-author">{authors?.join(", ") || "Unknown Author"}</p>
+            </div>
           </div>
-        </div>
-
-        {/* Back of the card */}
-        <div className={styles.cardBack}>
-          <h4 className={styles.title}>Details</h4>
-          <p>Author: J.K. Rowling</p>
-          <p>Genre: Fantasy</p>
-          <p>Price: $20</p>
-          <div className={styles.button_Container}>
-            <button className={styles.readButton}>Already Read</button>
-            <button className={styles.willingToReadButton}>Willing to Read</button>
-            <button
-              className={styles.more_details}
-              onClick={handleFlip}
-            >
-              Back
-            </button>
-          </div>
-        </div>
-      </div>
+        );
+      })}
     </div>
   );
-}
+};
 
 export default Card;

@@ -1,7 +1,18 @@
-.grid{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    justify-content: center;
-    z-index: 1;
+.grid-wrapper {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  overflow: hidden; /* Hide overflow to show only visible cards */
+}
+
+.grid {
+  display: flex;
+  row-gap: 20px; /* Adjust spacing between cards */
+  overflow-x: auto;
+  scroll-behavior: smooth; /* Smooth scrolling */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.grid::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari */
 }
