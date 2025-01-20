@@ -6,15 +6,16 @@ import Card from "../../Components/Card-genre/card_2.jsx";
 import axios from "axios";
 
 const Home = () => {
-  const [bookData, setBookData] = useState([]);
-  const [clidrenBooks, setChildrenBooks] = useState([]);
+  const [fictionBooks, setFiction] = useState([]);
+  const [clidrenBooks, setChildren] = useState([]);
+  const [nonFictionBooks, setNonFiction] = useState([]);
   
 
   // Fetch books from the Google Books API
-  const fetchBooks = async () => {
+  const fetchBooks = async (query,setBookData) => {
     try {
       const response = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes?q=subject:fiction&maxResults=20&key=AIzaSyAzXezPkeYGmLSZmdmivT3eeUM-oD31Rac`
+        `https://www.googleapis.com/books/v1/volumes?q=subject:${query}&maxResults=20&key=AIzaSyAzXezPkeYGmLSZmdmivT3eeUM-oD31Rac`
       );
       setBookData(response.data.items || []); // Safely handle cases with no items
       console.log(response); // Check the response data in the console
@@ -25,25 +26,11 @@ const Home = () => {
 
   // Call fetchBooks when the component mounts
   useEffect(() => {
-    fetchBooks();
+    fetchBooks("fiction",setFiction);
+    fetchBooks("children",setChildren);
+    fetchBooks("nonfiction",setNonFiction);
   }, []);
 
-  const fetchChildrenBooks = async () => {
-    try {
-      const response = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes?q=subject:children&maxResults=20&key=AIzaSyAzXezPkeYGmLSZmdmivT3eeUM-oD31Rac`
-      );
-      setChildrenBooks(response.data.items || []); // Safely handle cases with no items
-      console.log(response); // Check the response data in the console
-    } catch (error) {
-      console.error("Error fetching books:", error);
-    }
-  };
-
-  // Call fetchBooks when the component mounts
-  useEffect(() => {
-    fetchChildrenBooks();
-  }, []);
 
   return (
     <div>
@@ -52,17 +39,27 @@ const Home = () => {
         <Hero />
       </div>
       <div className="books">
-        <div className="title_1">
+        
+        <div className="bookTitle">
           <h3>FICTION</h3>
         </div>
         {/* Pass the bookData to the Card component */}
-        <Card books={bookData} />
+        <Card books={fictionBooks} />
 
-        <div className="title_2">
+        <div className="bookTitle">
+          <h3>NON-FICTION</h3>
+        </div>
+        {/* Pass the bookData to the Card component */}
+        <Card books={nonFictionBooks} />
+
+        <div className="bookTitle">
           <h3>CHILDREN</h3>
         </div>
         {/* Pass the bookData to the Card component */}
         <Card books={clidrenBooks} />
+
+
+      
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import "./Card_2.css";
 const Card = ({ books }) => {
   // If no books are provided or books array is empty
   if (!books || books.length === 0) {
-    return <div>No books found. Try searching for something else!</div>;
+    return <div></div>;
   }
 
   return (

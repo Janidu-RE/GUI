@@ -6,7 +6,7 @@
     background-position: center;
     background-attachment: fixed;
   }
-  .title_1{
+  .bookTitle{
     font-size: 3rem;
     font-weight: 700;
     color: #060000;
@@ -15,12 +15,4 @@
     margin:  auto;
     padding: 40px 0;
   }
-  .title_2{
-    font-size: 3rem;
-    font-weight: 700;
-    color: #060000;
-    text-align: center;
-    margin-top: 10%;
-    margin:  auto;
-    padding: 40px 0;
-  }
+  
