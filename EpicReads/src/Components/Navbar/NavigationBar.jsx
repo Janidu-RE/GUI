@@ -1,7 +1,7 @@
 import * as React from "react";
 import styles from './NavigationBar.module.css';
 import logo_1 from '../../assets/logo_1.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 
 const navLinks = [
   { text: 'All Books', to: '/Allbooks' },
@@ -41,13 +41,17 @@ export default function NavigationBar() {
             </Link>
           </div>
           {navLinks.map((link) => (
-            <Link 
+            <NavLink 
               key={link.text}
               to={link.to}
-              className={styles.navLink}
+              className={({ isActive }) => 
+                isActive 
+                  ? `${styles.navLink} ${styles.active}` 
+                  : styles.navLink
+              }
             >
               {link.text}
-            </Link>
+            </NavLink>
           ))}
         </div>
         <div className={styles.authContainer}>

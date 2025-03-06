@@ -5,7 +5,6 @@ import "../Card/Card.css";
 const Card_Ebook = ({ books }) => {
   const navigate = useNavigate();
 
-
   if (!books || books.length === 0) {
     return <div>No books found. Try searching for something else!</div>;
   }
@@ -18,10 +17,11 @@ const Card_Ebook = ({ books }) => {
     <div className="product-container">
       {books.map((item, index) => {
         const volumeInfo = item.volumeInfo || {};
-        const { title, authors, imageLinks, industryIdentifiers } = volumeInfo;
+        const { title, authors, imageLinks } = volumeInfo;
         const volumeId = item.id;
-
-        const imageUrl = imageLinks ? imageLinks.thumbnail : "https://via.placeholder.com/250x350";
+        const imageUrl = imageLinks
+          ? imageLinks.thumbnail
+          : "https://via.placeholder.com/250x350";
 
         return (
           <div className="product-card" key={index}>
@@ -39,7 +39,9 @@ const Card_Ebook = ({ books }) => {
             </div>
             <div className="product-info">
               <h3 className="card-title">{title || "No Title Available"}</h3>
-              <p className="card-author">{authors ? authors.join(", ") : "Unknown Author"}</p>
+              <p className="card-author">
+                {authors ? authors.join(", ") : "Unknown Author"}
+              </p>
             </div>
           </div>
         );

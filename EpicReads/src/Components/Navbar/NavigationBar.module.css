@@ -46,12 +46,20 @@
   margin: auto 0;
   color: #fff;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
   margin-left: 30px;
+  padding-bottom: 5px;
 }
 
 .navLink:hover {
   color: #ff9800;
+}
+
+/* Active link styling so that the clicked link stays in the hover state */
+.active {
+  color: #ff9800;
+  border-bottom: 2px solid #ff9800;
+  font-weight: bold;
 }
 
 .authContainer {
@@ -140,6 +148,7 @@
   box-shadow: 0 2px 8px rgba(255, 68, 68, 0.3);
 }
 
+/* Responsive styles */
 @media (max-width: 991px) {
   .navigationWrapper {
     padding: 7px 20px;

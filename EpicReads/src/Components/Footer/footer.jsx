@@ -3,6 +3,7 @@ import "./Footer.css";
 import logo from '../../assets/logo.png'
 import styles from '../Navbar/NavigationBar.module.css';
 import logo_1 from '../../assets/logo_1.png'
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -24,10 +25,10 @@ const Footer = () => {
                 <div className="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Book Categories</a></li>
-                        <li><a href="#">Book Shelf</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/AllBooks">All Books</Link></li>
+                        <li><Link to="/Bookshelf">Book Shelf</Link></li>
+                        <li><Link to="/Ebook">Ebooks</Link></li>
                     </ul>
                 </div>
 

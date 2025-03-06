@@ -1,0 +1,315 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dg="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
+
+        xmlns:vm="using:UserManagementApp.ViewModels"
+        x:Class="UserManagementApp.Views.MainWindow"
+        Title="User Manager Pro"
+        Width="1280" Height="720"
+        FontFamily="Segoe UI"
+        Background="Beige">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Grid ColumnDefinitions="300,*" Margin="20">
+        <!-- Left Sidebar -->
+        <Border Grid.Column="0" 
+                Background="#2d3436" 
+                CornerRadius="12" 
+                BoxShadow="0 8 24 0 #1A000000"
+                Padding="20">
+            
+            <DockPanel>
+                <Image  Source="/Assets/logo_1.png" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="20"/>
+                <StackPanel Spacing="20" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment='Center'>
+                
+                
+                <Button Width="200" Content="➕ Add New User" 
+                        Command="{Binding ShowAddFormCommand}"
+                        Classes="PrimaryButton"
+                        Height="60"
+                        FontSize="18"/>
+                        
+                <Button Width="200" Content="🗑️ Delete User" 
+                        Command="{Binding ShowDeleteFormCommand}"
+                        Classes="DangerButton"
+                        Height="60"
+                        FontSize="18"/>
+                <Button Width="200" Content="✏️   Update User"
+                        Command="{Binding ShowUpdateFormCommand}"
+                        Classes="UpdateButton"
+                        Height="60"
+                        FontSize="18" />
+
+            </StackPanel>
+            </DockPanel>
+            
+        </Border>
+
+        <!-- Right Content Area -->
+        <Grid Grid.Column="1" Margin="20 0 0 0">
+            <TextBlock Classes="Title" Text="User Management Application" />
+            <!-- Users Table -->
+            <dg:DataGrid ItemsSource="{Binding Users}" 
+                         AutoGenerateColumns="False"
+                         IsReadOnly="True"
+                         GridLinesVisibility="None"
+                         Background="White"
+                         HeadersVisibility="Column"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         CornerRadius="12"
+                         BorderThickness="2"
+                         BorderBrush="#dfe6e9"
+                         Height="400">
+                <dg:DataGrid.Columns>
+                    <dg:DataGridTextColumn Header="ID" 
+                                           Binding="{Binding Id}" 
+                                           Width="80"
+                                           Foreground="#2d3436"/>
+                    <dg:DataGridTextColumn Header="Username" 
+                                           Binding="{Binding Username}"
+                                           Foreground="#2d3436"/>
+                    <dg:DataGridTextColumn Header="Email" 
+                                           Binding="{Binding Email}"
+                                           Foreground="#2d3436"/>
+                    <dg:DataGridTextColumn Header="Password" 
+                                           Binding="{Binding Password}"
+                                           Foreground="#2d3436"/>
+                    <dg:DataGridTextColumn Header="Joined Date" 
+                                           Binding="{Binding CreatedAt, StringFormat='{}{0:dd MMM yyyy}'}"
+                                           Foreground="#636e72"/>
+                </dg:DataGrid.Columns>
+            </dg:DataGrid>
+            
+            <!-- Update User Form -->
+            <Border Background="#dfefff"
+                    CornerRadius="12"
+                    Padding="30"
+                    Width="400"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    IsVisible="{Binding ShowUpdateFormField}"
+                    ZIndex="1"
+                    BoxShadow="0 8 24 0 #1A000000">
+                <StackPanel Spacing="15">
+                    <TextBlock Text="Update User" 
+                               FontSize="24" 
+                               FontWeight="Bold"
+                               Foreground="#2d3436"/>
+                    <!-- Ask for username first -->
+                    <TextBox Watermark="Enter username" 
+                             Text="{Binding UpdateUsername}"
+                             Classes="InputField"/>
+                    <Button Content="Load User" 
+                            Command="{Binding LoadUserForUpdateCommand}"
+                            Classes="PrimaryButton"
+                            Height="40"
+                            FontSize="16"/>
+                    <!-- Show email and password fields only after user is loaded -->
+                    <StackPanel Spacing="10" IsVisible="{Binding ShowUpdateDetails}">
+                        <TextBox Watermark="Email" 
+                                 Text="{Binding Email}"
+                                 Classes="InputField"/>
+                        <TextBox Watermark="Password" 
+                                 Text="{Binding Password}"
+                                 PasswordChar="•"
+                                 Classes="InputField"/>
+                        <StackPanel Orientation="Horizontal" 
+                                    HorizontalAlignment="Right"
+                                    Spacing="10">
+                            <Button Content="Cancel" 
+                                    Command="{Binding HideUpdateFormCommand}"
+                                    Classes="SecondaryButton"/>
+                            <Button Content="Update" 
+                                    Command="{Binding ConfirmUpdateUserCommand}"
+                                    Classes="PrimaryButton"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+
+            <!-- Add User Form -->
+            <Border Background="#ffeaa7"
+                    CornerRadius="12"
+                    Padding="30"
+                    Width="400"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    IsVisible="{Binding ShowAddFormField}"
+                    ZIndex="1"
+                    BoxShadow="0 8 24 0 #1A000000">
+                <StackPanel Spacing="15">
+                    <TextBlock Text="Add New User" 
+                             FontSize="24" 
+                             FontWeight="Bold"
+                             Foreground="#2d3436"/>
+                    
+                    <TextBox Watermark="Username" 
+                             Text="{Binding Username}"
+                             Classes="InputField"/>
+                    
+                    <TextBox Watermark="Email" 
+                             Text="{Binding Email}"
+                             Classes="InputField"/>
+                    
+                    <TextBox Watermark="Password" 
+                             Text="{Binding Password}"
+                             PasswordChar="•"
+                             Classes="InputField"/>
+                    
+                    <StackPanel Orientation="Horizontal" 
+                               HorizontalAlignment="Right"
+                               Spacing="10">
+                        <Button Content="Cancel" 
+                                Command="{Binding HideAddFormCommand}"
+                                Classes="SecondaryButton"/>
+                        <Button Content="Create" 
+                                Command="{Binding AddUserCommand}"
+                                Classes="PrimaryButton"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Delete User Form -->
+            <Border Background="#f5f6fa"
+                    CornerRadius="12"
+                    Padding="30"
+                    Width="400"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    IsVisible="{Binding ShowDeleteFormField}"
+                    ZIndex="1"
+                    BoxShadow="0 8 24 0 #1A000000">
+                <StackPanel Spacing="15">
+                    <TextBlock Text="Delete User" 
+                             FontSize="24" 
+                             FontWeight="Bold"
+                             Foreground="#2d3436"/>
+                    
+                    <TextBox Watermark="Enter username" 
+                             Text="{Binding DeleteUsername}"
+                             Classes="InputField"/>
+                    
+                    <StackPanel Orientation="Horizontal" 
+                               HorizontalAlignment="Right"
+                               Spacing="10">
+                        <Button Content="Cancel" 
+                                Command="{Binding HideDeleteFormCommand}"
+                                Classes="SecondaryButton"/>
+                        <Button Content="Delete" 
+                                Command="{Binding DeleteUserCommand}"
+                                Classes="DangerButton"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Status Message -->
+            <Border Background="{Binding StatusColor}"
+                    CornerRadius="8"
+                    Padding="15 10"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Margin="0 0 0 20"
+                    ZIndex="2"
+                    IsVisible="{Binding ShowStatusMessage}">
+                <TextBlock Text="{Binding StatusMessage}"
+                         Foreground="White"
+                         FontWeight="SemiBold"/>
+            </Border>
+        </Grid>
+    </Grid>
+
+    <Window.Styles>
+        <!-- DataGrid Styling -->
+        <Style Selector="DataGrid">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Background" Value="white"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="BorderBrush" Value="#dfe6e9"/>
+        </Style>
+
+        <Style Selector="DataGridColumnHeader">
+            <Setter Property="Background" Value="#3498db"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="15 10"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+
+        <Style Selector="DataGridRow">
+            <Setter Property="BorderBrush" Value="#dfe6e9"/>
+            <Setter Property="BorderThickness" Value="0 0 0 1"/>
+        </Style>
+
+        <!-- Button Styles -->
+        <Style Selector="Button.PrimaryButton">
+            <Setter Property="Background" Value="#3498db"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="15 10"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style Selector="Button.DangerButton">
+            <Setter Property="Background" Value="#e74c3c"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="15 10"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        
+        <Style Selector="Button.UpdateButton">
+            <Setter Property="Background" Value="Green"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="15 10"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style Selector="Button.SecondaryButton">
+            <Setter Property="Background" Value="#bdc3c7"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="15 10"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <!-- Input Fields -->
+        <Style Selector="TextBox.InputField">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="#dfe6e9"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="14"/>
+            
+        </Style>
+        <Style Selector="TextBox:focus">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+        
+        <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+            <Setter Property="Background" Value="LightGray"/>
+        </Style>
+        
+        <Style Selector="TextBlock.Title">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="30"/>
+            
+
+        </Style>
+
+        
+    </Window.Styles>
+</Window>

@@ -1,4 +1,3 @@
-// src/components/Card_2/Card_2.jsx
 import React, { useEffect, useRef, useState } from "react";
 import { useBookshelf } from '../../Context/BookshelfContext';
 import "./Card_2.css";
@@ -8,6 +7,7 @@ const Card = ({ books }) => {
   const containerRef = useRef(null);
   const [autoScroll, setAutoScroll] = useState(true);
   const [intervalId, setIntervalId] = useState(null);
+  const [alert, setAlert] = useState({ show: false, message: "" });
 
   const calculateScrollStep = () => {
     if (!containerRef.current) return 270;
@@ -31,6 +31,15 @@ const Card = ({ books }) => {
       const scrollStep = calculateScrollStep();
       containerRef.current.scrollLeft += scrollStep;
     }
+  };
+
+  const handleAddToShelf = (shelf, item) => {
+    addToShelf(shelf, item);
+    setAlert({ show: true, message: `Book added to ${shelf.replace(/([A-Z])/g, " $1").toLowerCase()}!` });
+
+    setTimeout(() => {
+      setAlert({ show: false, message: "" });
+    }, 3000);
   };
 
   useEffect(() => {
@@ -64,6 +73,12 @@ const Card = ({ books }) => {
       onMouseEnter={() => setAutoScroll(false)}
       onMouseLeave={() => setAutoScroll(true)}
     >
+      {alert.show && (
+        <div className="success-alert">
+          <span className="checkmark">✔</span> {alert.message}
+        </div>
+      )}
+
       <div className="card-product-container" ref={containerRef}>
         {books.map((item, index) => {
           const volumeInfo = item.volumeInfo || {};
@@ -81,13 +96,13 @@ const Card = ({ books }) => {
                 <div className="card-btn-container">
                   <button 
                     className="btn"
-                    onClick={() => addToShelf('alreadyRead', item)}
+                    onClick={() => handleAddToShelf('alreadyRead', item)}
                   >
                     Already Read
                   </button>
                   <button 
                     className="btn"
-                    onClick={() => addToShelf('wantToRead', item)}
+                    onClick={() => handleAddToShelf('wantToRead', item)}
                   >
                     Willing to Read
                   </button>

@@ -1,3 +1,32 @@
+.success-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  z-index: 1000;
+}
+
+.success-alert.fade-out {
+  opacity: 0;
+}
+
+.checkmark {
+  font-size: 1.5rem;
+}
+
+/* Existing CSS */
 .card-slider-wrapper {
   position: relative;
   overflow: hidden;
@@ -35,7 +64,6 @@
 
 .card-card-image:hover {
   transform: scale(1.05);
-  
 }
 
 .card-product-thumb {
@@ -77,12 +105,6 @@
   color: #ffffff;
 }
 
-
-.card-btn:hover {
-  background: #009688;
-  color: #fff;
-}
-
 .card-card-title {
   font-size: 1rem;
   font-weight: 500;
@@ -110,7 +132,6 @@
   border-radius: 50%;
   cursor: pointer;
   z-index: 2;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   font-size: 1.2rem;
   display: flex;
@@ -130,9 +151,4 @@
 
 .slider-btn.right {
   right: 15px;
-}
-
-/* Add this to ensure proper stacking context */
-.card-slider-wrapper {
-  position: relative;
 }

@@ -88,3 +88,31 @@
   color: #333;
   font-weight: bold;
 }
+.success-alert {
+  justify-content: center;
+  width:100%;
+  max-width: 400px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.success-alert.hide {
+  opacity: 0;
+}
+
+.success-alert img {
+  width: 20px;
+  height: 20px;
+}
+

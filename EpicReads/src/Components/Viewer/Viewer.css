@@ -50,3 +50,10 @@
     border-radius: 4px;
     cursor: pointer;
   }
+  .viewer_title{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 20px 0px;
+    
+  }
