@@ -35,6 +35,7 @@
 
 .card-card-image:hover {
   transform: scale(1.05);
+  
 }
 
 .card-product-thumb {
@@ -96,4 +97,42 @@
   font-weight: 400;
   color: #009688;
   text-transform: capitalize;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-btn:hover {
+  background: #009688;
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn.left {
+  left: 15px;
+}
+
+.slider-btn.right {
+  right: 15px;
+}
+
+/* Add this to ensure proper stacking context */
+.card-slider-wrapper {
+  position: relative;
 }

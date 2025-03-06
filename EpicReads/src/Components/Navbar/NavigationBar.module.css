@@ -5,20 +5,17 @@
   text-align: center;
   position: fixed;
   width: 100%;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .navigationWrapper {
   backdrop-filter: blur(30px);
   background-color: #000;
-  box-shadow: 0px 0px 30px rgba(227,228,237,0.37);
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 7px 61px;
-
-  
 }
 
 .navigationLinks {
@@ -29,7 +26,6 @@
   font: 400 16px Microsoft Sans Serif;
 }
 
-
 .brandLogo {
   object-fit: contain;
   object-position: center;
@@ -38,11 +34,11 @@
   margin-left: 20%;
   padding-top: 8px;
   padding-bottom: 8px;
-  transition: transform 1s ease;
-  
+  transition: transform 0.3s ease;
 }
+
 .brandLogo:hover {
-  transform: scale(1.3);
+  transform: scale(1.1);
 }
 
 .navLink {
@@ -55,13 +51,14 @@
 }
 
 .navLink:hover {
-    color: #ff9800;
+  color: #ff9800;
 }
 
 .authContainer {
   display: flex;
   gap: 40px;
   margin: auto 0;
+  align-items: center;
 }
 
 .loginLink {
@@ -71,6 +68,7 @@
   text-decoration: none;
   transition: color 0.3s ease;
 }
+
 .loginLink:hover {
   color: #ff9800;
 }
@@ -78,20 +76,21 @@
 .signUpButton {
   justify-content: center;
   border-radius: 100px;
-  background: var(--M3-white, #fff);
+  background: #fff;
   display: flex;
   min-height: 40px;
   flex-direction: column;
   overflow: hidden;
-  color: var(--Grays-Black, #000);
-  letter-spacing: var(--Label-Large-Tracking, 0.1px);
-  font: 500 var(--Label-Large-Size, 14px) / var(--Label-Large-Line-Height, 20px) var(--Label-Large-Font, Roboto);
+  color: #000;
+  letter-spacing: 0.1px;
+  font: 500 14px/20px Roboto;
   border: none;
   cursor: pointer;
-  transition: transform 1s ease;
+  transition: all 0.3s ease;
 }
+
 .signUpButton:hover {
-  transform: scale(1.2);
+  transform: scale(1.05);
   background-color: #ff9800;
 }
 
@@ -104,23 +103,136 @@
   flex: 1;
   height: 100%;
   padding: 10px 24px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.welcomeMessage {
+  color: #fff;
+  font: 400 16px Microsoft Sans Serif;
+  margin: auto 0;
+  padding-right: 15px;
+}
+
+.username {
+  color: #ff9800;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.signOutButton {
+  justify-content: center;
+  border-radius: 25px;
+  background: transparent;
+  border: 2px solid #ff4444;
+  color: #ff4444;
+  display: flex;
+  padding: 8px 25px;
+  font: 500 16px Microsoft Sans Serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signOutButton:hover {
+  background: #ff4444;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(255, 68, 68, 0.3);
 }
 
 @media (max-width: 991px) {
   .navigationWrapper {
-    max-width: 100%;
-    padding: 0 20px;
+    padding: 7px 20px;
+    gap: 15px;
   }
-  
+
   .navigationLinks {
-    max-width: 100%;
+    gap: 20px;
   }
-  
-  .brandContainer {
-    white-space: initial;
+
+  .brandLogo {
+    width: 160px;
+    margin-left: 10%;
   }
-  
+
+  .navLink {
+    margin-left: 15px;
+    font-size: 14px;
+  }
+
+  .authContainer {
+    gap: 20px;
+  }
+
+  .welcomeMessage {
+    font-size: 14px;
+    padding-right: 10px;
+  }
+
+  .username {
+    font-size: 16px;
+  }
+
+  .signOutButton {
+    padding: 6px 18px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navigationLinks {
+    gap: 10px;
+  }
+
+  .brandLogo {
+    width: 140px;
+    margin-left: 0;
+  }
+
+  .navLink {
+    margin-left: 10px;
+    font-size: 13px;
+  }
+
+  .authContainer {
+    gap: 15px;
+  }
+
+  .welcomeMessage {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigationWrapper {
+    padding: 7px 15px;
+  }
+
+  .brandLogo {
+    width: 120px;
+  }
+
+  .navLink {
+    display: none;
+  }
+
+  .authContainer {
+    gap: 10px;
+  }
+
+  .signOutButton {
+    padding: 5px 15px;
+  }
+
+  .loginLink {
+    font-size: 14px;
+  }
+
+  .signUpButton {
+    min-height: 35px;
+  }
+
   .buttonContent {
-    padding: 0 20px;
+    padding: 8px 18px;
   }
 }

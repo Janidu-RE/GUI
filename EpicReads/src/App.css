@@ -1,0 +1,25 @@
+/* App.css */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .content-wrapper {
+    flex: 1;
+    position: relative;
+  }
+  
+  /* Viewer-specific fixes */
+  #viewerCanvas {
+    width: 100% !important;
+    height: calc(100vh - 120px) !important;
+    min-height: 600px;
+    border: none;
+  }
+  
+  .viewer-loading {
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+  }
